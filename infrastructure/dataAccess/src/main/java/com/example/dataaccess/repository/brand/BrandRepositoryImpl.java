@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BrandRepositoryImpl implements BrandRepository {
 
-    public static final String BASE_URL = "https://parallelum.com.br/fipe/api/v1";
+    public static final String BASE_URL = "https://parallelum.com.br/fipe/api/v1/";
     private Retrofit retrofit;
 
     @Inject

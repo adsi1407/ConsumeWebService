@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface BrandsService {
 
-    @GET("/carros/marcas")
+    @GET("carros/marcas")
     Call<List<Brand>> getAllBrands();
 }
