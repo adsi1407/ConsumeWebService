@@ -6,11 +6,14 @@ import com.example.domain.repository.BrandRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class BrandService {
 
     public static final String NO_BRANDS_FOUND = "No se encontraron marcas de vehículos";
     private BrandRepository brandRepository;
 
+    @Inject
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
