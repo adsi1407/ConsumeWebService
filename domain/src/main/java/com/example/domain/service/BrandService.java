@@ -18,7 +18,7 @@ public class BrandService {
         this.brandRepository = brandRepository;
     }
 
-    public List<Brand> getAllBrands() throws Exception {
+    public List<Brand> getAllBrands() {
 
         List<Brand> brands = brandRepository.getAllBrands();
 
