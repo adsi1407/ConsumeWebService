@@ -8,7 +8,7 @@ public class Brand {
     private String id;
 
     @SerializedName("nome")
-    private String Name;
+    private String name;
 
     public String getId() {
         return id;
@@ -19,10 +19,10 @@ public class Brand {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 }
