@@ -1,6 +1,7 @@
 package com.example.dataaccess.repository.brand;
 
 import com.example.domain.entity.Brand;
+import com.example.domain.exception.TechnicalException;
 import com.example.domain.repository.BrandRepository;
 
 import java.io.IOException;
@@ -29,12 +30,19 @@ public class BrandRepositoryImpl implements BrandRepository {
     }
 
     @Override
-    public List<Brand> getAllBrands() throws IOException {
+    public List<Brand> getAllBrands() {
 
         BrandsService brandsService = retrofit.create(BrandsService.class);
         Call<List<com.example.dataaccess.dto.Brand>> call = brandsService.getAllBrands();
-        Response<List<com.example.dataaccess.dto.Brand>> response = call.execute();
-        List<com.example.dataaccess.dto.Brand> brandsFromService = response.body();
+        List<com.example.dataaccess.dto.Brand> brandsFromService = new ArrayList<>();
+
+        try {
+            Response<List<com.example.dataaccess.dto.Brand>> response = call.execute();
+            brandsFromService = response.body();
+        }
+        catch (IOException ex) {
+            throw new TechnicalException(ex);
+        }
 
         List<Brand> brands = new ArrayList<>();
 
