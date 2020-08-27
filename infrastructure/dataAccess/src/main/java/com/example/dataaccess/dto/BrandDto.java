@@ -2,7 +2,7 @@ package com.example.dataaccess.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Brand {
+public class BrandDto {
 
     @SerializedName("codigo")
     private String id;

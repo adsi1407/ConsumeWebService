@@ -1,6 +1,6 @@
 package com.example.dataaccess.repository.brand;
 
-import com.example.dataaccess.dto.Brand;
+import com.example.dataaccess.dto.BrandDto;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface BrandsService {
 
     @GET("carros/marcas")
-    Call<List<Brand>> getAllBrands();
+    Call<List<BrandDto>> getAllBrands();
 }
