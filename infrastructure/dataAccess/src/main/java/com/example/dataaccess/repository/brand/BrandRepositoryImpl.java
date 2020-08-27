@@ -1,12 +1,12 @@
 package com.example.dataaccess.repository.brand;
 
+import com.example.dataaccess.anticorruption.BrandTranslator;
 import com.example.dataaccess.dto.BrandDto;
 import com.example.domain.entity.Brand;
 import com.example.domain.exception.TechnicalException;
 import com.example.domain.repository.BrandRepository;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,13 +45,6 @@ public class BrandRepositoryImpl implements BrandRepository {
             throw new TechnicalException(ex);
         }
 
-        List<Brand> brands = new ArrayList<>();
-
-        for (int i = 0; i < brandsFromService.size(); i++) {
-            BrandDto brandDto = brandsFromService.get(i);
-            brands.add(new Brand(brandDto.getId(), brandDto.getName()));
-        }
-
-        return brands;
+        return new BrandTranslator().dtoListToEntityList(brandsFromService);
     }
 }
